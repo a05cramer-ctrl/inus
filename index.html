@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>inus</title>
+<meta name="description" content="inus. he is inus. that's it.">
+<meta property="og:title" content="inus">
+<meta property="og:description" content="he is inus. that's it.">
+<meta property="og:image" content="assets/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="assets/pfp.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#1c1b22;--paper:#fff;--navy:#1b3568;--red:#e5332c;--orange:#f2a24a;--cream:#fbe9c9}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{overflow-x:clip}
+  body{background:var(--paper);color:var(--ink);font-family:Fredoka,system-ui,sans-serif;min-height:100svh;display:flex;flex-direction:column;-webkit-font-smoothing:antialiased}
+  [hidden]{display:none!important}
+  .strip{background:var(--ink);color:#fff;font-weight:700;font-size:14px;letter-spacing:.14em;text-transform:uppercase;overflow:hidden;white-space:nowrap;padding:9px 0}
+  .strip .in{display:inline-block;animation:mq 22s linear infinite}
+  .strip span{padding:0 22px}
+  @keyframes mq{to{transform:translateX(-50%)}}
+  main{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:28px 16px 40px;gap:14px;position:relative}
+  h1{font-size:clamp(84px,18vw,190px);line-height:.9;font-weight:700;letter-spacing:-.04em;color:var(--navy);-webkit-text-stroke:3px var(--ink);text-shadow:8px 8px 0 var(--ink);transform:rotate(-3deg)}
+  .guy{position:relative;width:min(70vw,420px);margin:6px 0 0;cursor:pointer;user-select:none;-webkit-user-select:none;touch-action:manipulation}
+  .guy img{width:100%;display:block;transform-origin:50% 100%;animation:breathe 2.6s ease-in-out infinite;filter:drop-shadow(0 14px 0 rgba(28,27,34,.12))}
+  .guy.hit img{animation:boing .5s cubic-bezier(.2,1.6,.4,1) 1}
+  @keyframes breathe{0%,100%{transform:scaleY(1)}50%{transform:scaleY(1.03) scaleX(.995)}}
+  @keyframes boing{0%{transform:scale(1.2,.8)}40%{transform:scale(.92,1.12) translateY(-16px)}100%{transform:scale(1,1)}}
+  .say{position:absolute;left:72%;top:4%;transform:translate(-50%,-100%) scale(.6);background:#fff;border:3px solid var(--ink);border-radius:16px;padding:8px 16px;font-weight:700;font-size:26px;box-shadow:5px 5px 0 var(--ink);opacity:0;transition:transform .18s cubic-bezier(.2,1.6,.4,1),opacity .18s;white-space:nowrap}
+  .say.on{opacity:1;transform:translate(-50%,-100%) scale(1)}
+  .say::after{content:"";position:absolute;left:50%;bottom:-10px;width:14px;height:14px;background:#fff;border-right:3px solid var(--ink);border-bottom:3px solid var(--ink);transform:translateX(-50%) rotate(45deg)}
+  .lede{font-size:clamp(20px,3vw,28px);font-weight:600;color:var(--ink);max-width:560px}
+  .lede b{color:var(--red)}
+  .cta{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:6px}
+  .btn{display:inline-flex;align-items:center;gap:8px;min-height:52px;padding:12px 22px;border:3px solid var(--ink);border-radius:16px;background:#fff;color:var(--ink);font:700 18px/1 Fredoka,sans-serif;text-decoration:none;box-shadow:5px 5px 0 var(--ink);transition:transform .08s,box-shadow .08s;cursor:pointer}
+  .btn:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--ink)}
+  .btn:active{transform:translate(3px,3px);box-shadow:2px 2px 0 var(--ink)}
+  .btn.buy{background:var(--red);color:#fff}
+  .btn.x{background:var(--navy);color:#fff}
+  .ca{display:inline-flex;align-items:center;gap:10px;margin-top:10px;max-width:92vw;min-height:48px;padding:10px 16px;border:3px dashed var(--ink);border-radius:14px;background:var(--cream);font:600 15px/1.2 ui-monospace,SFMono-Regular,Menlo,monospace;cursor:pointer}
+  .ca .v{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:60vw}
+  .ca .k{font-family:Fredoka,sans-serif;font-weight:700;background:var(--ink);color:#fff;border-radius:8px;padding:4px 8px;font-size:13px;letter-spacing:.08em}
+  .count{font-weight:700;font-size:15px;letter-spacing:.1em;text-transform:uppercase;color:#6b6a72;margin-top:6px}
+  .count b{color:var(--ink)}
+  footer{padding:18px;text-align:center;font-weight:600;font-size:14px;color:#6b6a72}
+  /* the herd */
+  #herd{position:fixed;left:0;right:0;bottom:0;height:120px;pointer-events:none;z-index:5}
+  .mini{position:absolute;bottom:0;width:90px;will-change:transform}
+  .mini img{width:100%;display:block;animation:waddle .36s ease-in-out infinite;transform-origin:50% 100%}
+  .mini.flip img{transform:scaleX(-1);animation:waddleF .36s ease-in-out infinite}
+  @keyframes waddle{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(4deg) translateY(-4px)}}
+  @keyframes waddleF{0%,100%{transform:scaleX(-1) rotate(4deg)}50%{transform:scaleX(-1) rotate(-4deg) translateY(-4px)}}
+  #toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);background:var(--ink);color:#fff;border-radius:12px;padding:10px 16px;font-weight:700;opacity:0;transition:.2s;z-index:50;pointer-events:none}
+  #toast.on{opacity:1;transform:translate(-50%,0)}
+  @media (prefers-reduced-motion:reduce){ .guy img,.strip .in,.mini img{animation:none!important} }
+  @media (max-width:640px){ h1{text-shadow:5px 5px 0 var(--ink);-webkit-text-stroke:2px var(--ink)} .say{font-size:20px} .mini{width:64px} }
+</style>
+</head>
+<body>
+<div class="strip"><div class="in" id="strip"></div></div>
+<main>
+  <h1>inus</h1>
+  <div class="guy" id="guy">
+    <div class="say" id="say">inus</div>
+    <img src="assets/inus-cut.webp" alt="inus" draggable="false">
+  </div>
+  <p class="lede">he is <b>inus</b>. that's it. that's the whole thing.</p>
+  <div class="cta">
+    <a class="btn buy" id="buy" href="#" target="_blank" rel="noopener">buy $INUS</a>
+    <a class="btn" id="chart" href="#" target="_blank" rel="noopener">chart</a>
+    <a class="btn x" id="xlink" href="#" target="_blank" rel="noopener">X</a>
+  </div>
+  <button class="ca" id="ca"><span class="k">CA</span><span class="v" id="caV">soon</span></button>
+  <div class="count">inus on screen: <b id="n">1</b></div>
+</main>
+<footer>$INUS · no roadmap. he can't read.</footer>
+<div id="herd"></div>
+<div id="toast">copied</div>
+<script src="config.js"></script>
+<script>
+(() => {
+  const C = window.INUS_CFG || {}, $ = (s) => document.querySelector(s);
+  const ca = (C.CA || '').trim();
+  const buy = C.BUY || (ca ? `https://pump.fun/coin/${ca}` : ''), chart = C.CHART || (ca ? `https://gmgn.ai/sol/token/${ca}` : ''), x = C.X || '';
+  const link = (id, href) => { const el = $(id); if (href) { el.href = href; el.hidden = false; } else el.hidden = true; };
+  link('#buy', buy); link('#chart', chart); link('#xlink', x);
+  $('#caV').textContent = ca || 'soon';
+  let tt; const toast = (s) => { const t = $('#toast'); t.textContent = s; t.classList.add('on'); clearTimeout(tt); tt = setTimeout(() => t.classList.remove('on'), 1300); };
+  $('#ca').addEventListener('click', async () => { if (!ca) return toast('ca drops at launch'); try { await navigator.clipboard.writeText(ca); toast('copied'); } catch { toast(ca); } });
+  const items = ['inus', 'he is inus', 'inus', 'not toly. inus', 'inus', '$INUS', 'inus', 'that\'s it'];
+  $('#strip').innerHTML = items.concat(items).map((s) => `<span>${s}</span>`).join('');
+
+  // the guy: click = "inus" + a new tiny inus joins the herd
+  const guy = $('#guy'), say = $('#say'), herd = $('#herd'), nEl = $('#n');
+  const WORDS = ['inus', 'inus.', 'inus?', 'INUS', 'inus', 'inus inus', 'i am inus', 'inus'];
+  let n = 1, sayT, minis = [];
+  const squeak = (() => { let ctx; return () => { try { ctx = ctx || new (window.AudioContext || window.webkitAudioContext)(); const o = ctx.createOscillator(), g = ctx.createGain(); o.type = 'square'; o.frequency.setValueAtTime(520 + Math.random() * 200, ctx.currentTime); o.frequency.exponentialRampToValueAtTime(260, ctx.currentTime + .12); g.gain.setValueAtTime(.06, ctx.currentTime); g.gain.exponentialRampToValueAtTime(.001, ctx.currentTime + .14); o.connect(g).connect(ctx.destination); o.start(); o.stop(ctx.currentTime + .15); } catch {} }; })();
+  guy.addEventListener('pointerdown', (e) => {
+    e.preventDefault(); squeak();
+    say.textContent = WORDS[Math.floor(Math.random() * WORDS.length)]; say.classList.add('on'); clearTimeout(sayT); sayT = setTimeout(() => say.classList.remove('on'), 900);
+    guy.classList.remove('hit'); void guy.offsetWidth; guy.classList.add('hit');
+    if (minis.length < 60) spawn(); nEl.textContent = ++n;
+  });
+  function spawn() {
+    const el = document.createElement('div'); el.className = 'mini'; el.innerHTML = '<img src="assets/inus-cut.webp" alt="">';
+    const dir = Math.random() < .5 ? 1 : -1, w = innerWidth;
+    const m = { el, x: dir > 0 ? -100 : w + 10, dir, sp: 1.2 + Math.random() * 1.6, scale: .7 + Math.random() * .6 };
+    el.classList.toggle('flip', dir < 0); el.style.transform = `translateX(${m.x}px) scale(${m.scale})`; el.style.transformOrigin = '50% 100%';
+    herd.appendChild(el); minis.push(m);
+  }
+  let last = performance.now();
+  (function tick(now) {
+    requestAnimationFrame(tick); const dt = Math.min(.05, (now - last) / 1000); last = now;
+    for (const m of minis) {
+      m.x += m.dir * m.sp * 60 * dt;
+      if (m.x > innerWidth + 120) { m.dir = -1; m.el.classList.add('flip'); }
+      if (m.x < -120) { m.dir = 1; m.el.classList.remove('flip'); }
+      m.el.style.transform = `translateX(${m.x}px) scale(${m.scale})`;
+    }
+  })(last);
+})();
+</script>
+</body>
+</html>
